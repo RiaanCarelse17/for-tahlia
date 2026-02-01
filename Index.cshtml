@@ -1,6 +1,4 @@
-﻿@{
-    Layout = null;
-}
+
 
 <!DOCTYPE html>
 <html>
@@ -81,11 +79,10 @@
 
         <h1 id="questionText">Tahlia will you be my Valentine?</h1>
 
-        <div class="btn-container">
-            @* <button id="yesBtn" class="btn" onclick="location.href='@Url.Action("Success", "Home")'">YES!</button>  *@
-            <button id="yesBtn" class="btn" onclick="location.href='success.html'">YES!</button>
-            <button id="noBtn" class="btn">No</button>
-        </div>
+<div class="btn-container">
+    <button id="yesBtn" class="btn" onclick="location.href='success.html'">YES!</button>
+    <button id="noBtn" class="btn">No</button>
+</div>
     </div>
 
     <script>
@@ -131,4 +128,5 @@
         });
     </script>
 </body>
+
 </html>
