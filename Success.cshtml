@@ -1,0 +1,93 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Tahlia Roopan Only ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        body {
+            background-color: #ff4d6d;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            padding: 20px;
+            z-index: 2;
+        }
+
+        img {
+            border-radius: 20px;
+            margin-top: 20px;
+            max-width: 90%;
+            width: 400px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            border: 5px solid white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        p {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="animate__animated animate__bounceIn">I knew you would say yes ❤️</h1>
+        <p class="animate__animated animate__fadeInUp animate__delay-1s">I love you SOOOOOOOOOO much my baby!!!!!!!!!!!</p>
+
+        <img class="animate__animated animate__zoomIn animate__delay-1s"
+             src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmF5bWdwazV6d2c0Yms1emQ4cmp6NWFwOW94NmJndjgxNm5uaG5qeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/PzplJ6h1UmrdyaqWlZ/giphy.gif"
+             alt="Happy Valentine's Celebration">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // Initial burst
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#ffffff', '#ffccd5', '#ff4d6d', '#ff0000']
+        });
+
+        // Continuous bursts for 3 seconds
+        const duration = 3 * 1000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        function randomInRange(min, max) {
+          return Math.random() * (max - min) + min;
+        }
+
+        const interval = setInterval(function() {
+          const timeLeft = animationEnd - Date.now();
+
+          if (timeLeft <= 0) {
+            return clearInterval(interval);
+          }
+
+          const particleCount = 50 * (timeLeft / duration);
+          confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+          confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+        }, 250);
+    </script>
+</body>
+</html>

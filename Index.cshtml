@@ -1,0 +1,134 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Tahlia Roopan Only ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            z-index: 5;
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            min-height: 80px;
+        }
+
+        .btn-container {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #yesBtn {
+            background-color: #e91e63;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        #noBtn {
+            background-color: #aeaeae;
+            color: white;
+        }
+
+        img {
+            border-radius: 15px;
+            margin-bottom: 10px;
+            max-width: 250px; /* Slightly larger to show off the GIF */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card animate__animated animate__zoomIn">
+        <img id="mainGif" src="https://media.giphy.com/media/hhMyf6x0TnHEw1l58Y/giphy.gif" alt="Valentines Heart">
+
+        <h1 id="questionText">Tahlia will you be my Valentine?</h1>
+
+        <div class="btn-container">
+            @* <button id="yesBtn" class="btn" onclick="location.href='@Url.Action("Success", "Home")'">YES!</button>  *@
+            <button id="yesBtn" class="btn" onclick="location.href='success.html'">YES!</button>
+            <button id="noBtn" class="btn">No</button>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const questionText = document.getElementById('questionText');
+
+        let noClickCount = 0;
+        const messages = [
+            "No",
+            "Must've been a misclick ",
+            "Tahlia?",
+            "Are you sure?",
+            "Really sure??",
+            "Are you 100% sure?",
+            "Think about it again!",
+            "Surely not...",
+            "Give it another thought!",
+            "You're breaking my heart ;(",
+            "I'm so sad",
+            "Okay, now you're just being mean!",
+            "PLEASE??",
+            "Just click Yes already!",
+            "Damn Really?"
+        ];
+
+        noBtn.addEventListener('click', () => {
+            noClickCount++;
+
+            const messageIndex = Math.min(noClickCount, messages.length - 1);
+            noBtn.innerText = messages[messageIndex];
+
+            const fontSize = Math.min(1.2 + (noClickCount * 0.5), 8);
+            const paddingX = Math.min(25 + (noClickCount * 15), 100);
+            const paddingY = Math.min(12 + (noClickCount * 10), 60);
+
+            yesBtn.style.fontSize = `${fontSize}rem`;
+            yesBtn.style.padding = `${paddingY}px ${paddingX}px`;
+
+            if(noClickCount > 2) {
+                questionText.innerText = "Please say Yes! 🥺";
+            }
+        });
+    </script>
+</body>
+</html>
